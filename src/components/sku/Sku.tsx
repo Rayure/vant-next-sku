@@ -322,14 +322,14 @@ export default defineComponent({
 
   methods: {
     resetStepper() {
-      const { skuStepper } = this.$refs;
+      const skuStepper = this.$refs.skuStepper as any
       const { selectedNum } = this.initialSku;
       const num = selectedNum ?? this.startSaleNum;
       // 用来缓存不合法的情况
       this.stepperError = null;
 
       if (skuStepper) {
-        // skuStepper.setCurrentNum(num);
+        skuStepper.setCurrentNum(num);
       } else {
         // 当首次加载（skuStepper 为空）时，传入数量如果不合法，可能会存在问题
         this.selectedNum = num;
